@@ -109,6 +109,8 @@ def BMICalculator():
          bmiCatergory = BMICategory(bmi)
          print(f"{bmi:.2f} {bmiCatergory}")
          return
+      else:
+         print("Your input is invalid!")
    
    except ValueError:
       print("Your input is invalid!")
