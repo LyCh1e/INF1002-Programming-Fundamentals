@@ -46,7 +46,7 @@ def WeeklyPaymentCalculator():
         totalWorkingHrs, normalRate, overtimeRate = userInput.split()
 
         totalWorkingHrs = float(totalWorkingHrs)
-        if totalWorkingHrs < 40:
+        if totalWorkingHrs <= 40:
             normalHrs = totalWorkingHrs
             overtimeHrs = 0
         elif totalWorkingHrs > 40 and totalWorkingHrs < 100:
