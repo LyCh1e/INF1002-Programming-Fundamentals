@@ -37,7 +37,7 @@ def AverageCalculator():
       # Split the input string into individual components
       value1, value2, value3 = userInput.split()
 
-      #  Convert values to float
+      # Convert values to float
       value1 = float(value1)
       value2 = float(value2)
       value3 = float(value3)
