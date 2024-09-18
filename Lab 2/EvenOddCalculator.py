@@ -59,17 +59,19 @@ def EvenOddCalculator():
                     countEven += 1
                     maxNumber = max(maxNumber, num) # Updates maxNumber if current number is larger
                     minNumber = min(minNumber, num) # Updates minNumber if current number is smaller
-                else:
+                elif num % 2 != 0:
                     sumOdd += num
-                    countOdd += num
+                    countOdd += 1
 					
-            centered_average = int((sum(numbers) - maxNumber - minNumber) / (len(numbers) - 2))
+            centerAverage = int((sum(numbers) - maxNumber - minNumber) / (len(numbers) - 2))
+            diffMaxMin = maxNumber - minNumber
+
             print(f"The sum of all even numbers is {sumEven}, " + 
                 f"the sum of all odd numbers is {sumOdd}, " + 
-                f"the difference between the biggest and the smallest number is {sumEven}, " + 
+                f"the difference between the biggest and the smallest number is {diffMaxMin}, " + 
                 f"the total number of even numbers is {countEven}, " + 
                 f"the total number of odd numbers is {countOdd}, " + 
-                f"the centered average is {centered_average}")
+                f"the centered average is {centerAverage}")
               
         except ValueError:
             print("Please enter valid integers")
