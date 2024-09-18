@@ -32,7 +32,7 @@ def CountPopularChars():
             # Get the top 5 most frequent characters and their counts in descending order and ascending ASCII order
             charCount = Counter(inputStr)
 		
-            #Using sorted(...)[:5] i am chosing from last value (lowest value)
+            # Using sorted(...)[:5] i am chosing from last value (lowest value)
             top5Chars = sorted(charCount.items(), key=lambda item: (-item[1], item[0]))[:5]
 
             # Convert the list of tuples into a string with the desired format
