@@ -54,11 +54,11 @@ def EvenOddCalculator():
             # Calculate the required values using a for loop and update the maximum and minimum numbers as well as 
             # the sum of even and odd numbers and counts of even and odd numbers.
             for num in numbers:
+		maxNumber = max(maxNumber, num) # Updates maxNumber if current number is larger
+                minNumber = min(minNumber, num) # Updates minNumber if current number is smaller
                 if num % 2 == 0:
                     sumEven += num
                     countEven += 1
-                    maxNumber = max(maxNumber, num) # Updates maxNumber if current number is larger
-                    minNumber = min(minNumber, num) # Updates minNumber if current number is smaller
                 elif num % 2 != 0:
                     sumOdd += num
                     countOdd += 1
