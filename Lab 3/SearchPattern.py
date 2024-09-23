@@ -30,7 +30,6 @@ def SearchPattern():
             candidate = list(map(int, sys.argv[1].split(',')))
             # Convert the second argument (pattern) to a list of integers.
             pattern = list(map(int, sys.argv[2].split(',')))
-            print(candidate, pattern)
 
             patternFound = 0
             
