@@ -67,10 +67,10 @@ def myMain():
             evenCount = myMath.evenNum(numbers)
             
             if minNum < 5:
-                clearNumbers = myMath.clear(numbers)
+                myMath.clear(numbers)
                 
             print ("The difference is:%d The summation is:%d The summation of all input is:%d The number of even numbers is:%d The values in the list are: %s" 
-                   % (diffMaxMin, sumMaxMin, sumTotal, evenCount, clearNumbers))
+                   % (diffMaxMin, sumMaxMin, sumTotal, evenCount, numbers))
             
         except ValueError:
             print("Your input is invalid.")
