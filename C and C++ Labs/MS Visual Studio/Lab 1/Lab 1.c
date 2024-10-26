@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include<stdbool.h>
+#include <stdbool.h>
 
 int main()
 {
@@ -7,37 +7,53 @@ int main()
     int roundsLeft = 10;
     int p2Number = 0;
 
-    while(true) {
+    while (true)
+    {
         printf("Player 1, enter a number between 1 and 1000:\n");
-        scanf_s("%d", &p1Number);
-        if (p1Number <= 1 || p1Number >= 1000) {
+        scanf("%d", &p1Number);
+        if (p1Number < 1 || p1Number > 1000)
+        {
             printf("That number is out of range.\n");
-            continue;
         }
-        else {
+        else
+        {
             break;
         }
     }
 
-    while(roundsLeft > 0)
+    while (roundsLeft > 0)
     {
-        printf("Player 2, you have %d guesses remaining.\n", roundsLeft);
-        printf("Enter your guess:\n");
-        scanf_s("%d", &p2Number);
-        if (p2Number > p1Number)
+        if (roundsLeft > 1)
         {
-            printf("Too high.\n");
+            printf("Player 2, you have %d guesses remaining.\nEnter your guess:\n", roundsLeft);
         }
-        else if (p2Number < p1Number)
+        else if (roundsLeft == 1)
         {
-            printf("Too low.\n");
+            printf("Player 2, you have %d guess remaining.\nEnter your guess:\n", roundsLeft);
         }
-        else if (p2Number == p1Number)
+        scanf("%d", &p2Number);
+
+        if (p2Number < 1 || p2Number > 1000)
         {
-            printf("Player 2 wins.\n");
-            return 0;
+            printf("That number is out of range.\n");
         }
-        roundsLeft--;
+        else
+        {
+            if (p2Number > p1Number)
+            {
+                printf("Too high.\n");
+            }
+            else if (p2Number < p1Number)
+            {
+                printf("Too low.\n");
+            }
+            else if (p2Number == p1Number)
+            {
+                printf("Player 2 wins.\n");
+                return 0;
+            }
+            roundsLeft--;
+        }
     }
     printf("Player 1 wins.\n");
     return 0;
