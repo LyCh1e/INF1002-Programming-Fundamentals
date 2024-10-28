@@ -135,7 +135,7 @@ int main()
     char inputText[256];
     char inputPattern[256];
     char caseSensitiveInput;
-    int caseSensitiveValue;
+    int caseSensitiveValue = 0;
     int matchedPattern = 0;
 
     // Ask for strings to match
