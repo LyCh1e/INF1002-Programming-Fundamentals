@@ -78,7 +78,7 @@ Example - 2:
 #include <ctype.h>
 #include <string.h>
 
-int findPattern(const char *inputPattern, const char *inputText, int caseSensitiveValue)
+int findPattern(const char *inputPattern, const char *inputText, char caseSensitiveValue)
 {
     int textLength = strlen(inputText);
     int patternLength = strlen(inputPattern);
@@ -94,7 +94,7 @@ int findPattern(const char *inputPattern, const char *inputText, int caseSensiti
             char textletter = inputText[textIndex + patternIndex];
             char patternLetter = inputPattern[patternIndex];
 
-            if (!caseSensitiveValue) // Check if case sensitivity is to be applied or not
+            if (caseSensitiveValue == 'Y') // Check if case sensitivity is to be applied or not
             {
                 textletter = tolower(textletter);
                 patternLetter = tolower(patternLetter);
@@ -127,7 +127,7 @@ int findPattern(const char *inputPattern, const char *inputText, int caseSensiti
             return textIndex; // Return the position where the match was found in the array
         }
     }
-    return -1; // No match found in the text array
+    return 0; // No match found in the text array
 }
 
 int main()
@@ -135,7 +135,7 @@ int main()
     char inputText[256];
     char inputPattern[256];
     char caseSensitiveInput;
-    int caseSensitiveValue = 0;
+    char caseSensitiveValue;
     int matchedPattern = 0;
 
     // Ask for strings to match
@@ -154,12 +154,12 @@ int main()
     inputText[strcspn(inputText, "\n")] = 0;
     inputPattern[strcspn(inputPattern, "\n")] = 0;
 
-    // caseSensitiveValue = 1 (true) if 'Y' and caseSensitiveValue = 0 (false) if 'N'
+    // Set caseSensitiveValue = 'Y' or caseSensitiveValue = 'N'
     caseSensitiveValue = toupper(caseSensitiveInput);
 
     matchedPattern = findPattern(inputPattern, inputText, caseSensitiveValue);
 
-    if (matchedPattern != -1)
+    if (matchedPattern != 0)
     {
         printf("Matches at position %d.\n", matchedPattern);
     }
