@@ -94,7 +94,7 @@ int findPattern(const char *inputPattern, const char *inputText, char caseSensit
             char textletter = inputText[textIndex + patternIndex];
             char patternLetter = inputPattern[patternIndex];
 
-            if (caseSensitiveValue == 'Y') // Check if case sensitivity is to be applied or not
+            if (caseSensitiveValue == 'N') // Check if case sensitivity is to be applied or not
             {
                 textletter = tolower(textletter);
                 patternLetter = tolower(patternLetter);
@@ -104,14 +104,14 @@ int findPattern(const char *inputPattern, const char *inputText, char caseSensit
             {
                 continue;
             }
-            else if (patternLetter == '_') // Else if the letter is a blank space
+            else if (patternLetter == '_' || patternLetter == ' ') // Else if the letter is a blank space
             {
                 if (!isspace(textletter))
                 {
                     matchCase = false;
                     break;
                 }
-            }
+            } 
             else
             {
                 if (textletter != patternLetter)
@@ -127,7 +127,7 @@ int findPattern(const char *inputPattern, const char *inputText, char caseSensit
             return textIndex; // Return the position where the match was found in the array
         }
     }
-    return 0; // No match found in the text array
+    return 1; // No match found in the text array
 }
 
 int main()
@@ -154,12 +154,12 @@ int main()
     inputText[strcspn(inputText, "\n")] = 0;
     inputPattern[strcspn(inputPattern, "\n")] = 0;
 
-    // Set caseSensitiveValue = 'Y' or caseSensitiveValue = 'N'
+    // Set caseSensitiveValue = 'Y' or  caseSensitiveValue = 'N' from their lower case
     caseSensitiveValue = toupper(caseSensitiveInput);
 
     matchedPattern = findPattern(inputPattern, inputText, caseSensitiveValue);
 
-    if (matchedPattern != 0)
+    if (matchedPattern != 1)
     {
         printf("Matches at position %d.\n", matchedPattern);
     }
